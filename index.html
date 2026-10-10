@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestion IndexedDB - dataJL</title>
+    <script defer src="app.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        margin: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      input {
+        margin: 5px;
+        padding: 5px;
+      }
+      button {
+        padding: 5px 10px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background: #fff;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: center;
+      }
+      .actions {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gestion de la base IndexedDB - dataJL</h1>
+
+    <form id="formPerson">
+      <input type="text" id="nom" placeholder="Nom" required />
+      <input type="text" id="prenom" placeholder="Prénom" required />
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <table id="tablePersons">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="actions">
+      <button onclick="exportJSON()">Exporter JSON</button>
+      <button onclick="exportCSV()">Exporter CSV</button>
+      <br /><br />
+      <input type="file" id="importFile" accept="application/json" />
+      <button onclick="importJSON()">Importer JSON</button>
+      <br /><br />
+      <button
+        onclick="clearTable()"
+        style="background-color: red; color: white"
+      >
+        Vider la table
+      </button>
+    </div>
+
+    <!-- <div class="restore">
+      <h3>Restaurer une sauvegarde</h3>
+      <select id="backupSelect">
+        <option value="">-- Sélectionnez une sauvegarde --</option>
+      </select>
+      <button onclick="restoreBackup()">Restaurer</button>
+    </div> -->
+  </body>
+</html>
